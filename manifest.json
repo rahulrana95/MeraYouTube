@@ -1,0 +1,29 @@
+{
+	"manifest_version":2,
+	"name":"meraYouTube",
+	"version":"1.0.0",
+	"description":"track songs played by you.",
+	"browser_action":{
+		"default_icon":"logo.png",
+		"default_popup":"index.html"
+	},
+	"background":{
+		"scripts": ["addingYoutubeUrls.js"],
+		"persistent":false
+	},
+	"content_scripts":[
+		 {
+	      "matches": ["http://*/*", "https://*/*"],
+	      "js": ["addingYoutubeUrls.js"]
+    }
+	]
+	,
+	"options_page":"options.html",
+	"permissions": [
+		"storage","notifications" ,"activeTab",
+    "webNavigation",
+    "tabs",
+    "http://*/*",
+    "https://*/*"
+	]
+}

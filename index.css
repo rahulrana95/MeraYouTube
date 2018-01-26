@@ -1,0 +1,51 @@
+.textAlignCenter {
+	text-align: center;
+}
+.hAuto {
+	height: auto;
+}
+
+.width200 {
+	width:200px;
+}
+
+.width400{
+	width:400px;
+}
+
+.borderR5{
+	border-radius: 5px;
+}
+
+.padding20{
+	padding: 10px;
+}
+.bgColor{
+	background-color: #ddd;
+}
+.height500{
+	max-height: 500px;
+}
+
+.overflowScroll{
+	overflow: scroll;
+}
+
+.displayGrid {
+	display: inline-grid;
+	grid-template-columns: 50% 50%;
+	grid-template-rows: 100%;
+
+
+}
+
+.item-a{
+	grid-column-start: 1;
+  grid-column-end: two;
+  grid-row-start: row1-start
+  grid-row-end: 3
+
+}
+.item-b{
+
+}
