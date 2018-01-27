@@ -38,6 +38,20 @@
 
 
 }
+#searchArea{
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+.songItem{
+	margin-bottom: 5px;
+	margin-top: 5px;
+	padding: 5px;
+	border:1px solid grey;
+}
+
+li{
+	list-style-type: none;
+}
 
 .item-a{
 	grid-column-start: 1;

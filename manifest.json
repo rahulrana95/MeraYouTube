@@ -20,7 +20,7 @@
 	,
 	"options_page":"options.html",
 	"permissions": [
-		"storage","notifications" ,"activeTab",
+		"storage","notifications" ,"activeTab","unlimitedStorage",
     "webNavigation",
     "tabs",
     "http://*/*",

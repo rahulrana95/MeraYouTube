@@ -27,15 +27,32 @@ function removeChilds(name){
 
 
 function loadMedia(){
-    chrome.storage.sync.get('youtubeVideos',function(items){
+    chrome.storage.local.get('youtubeVideos',function(items){
      removeChilds('content')
      var node = document.getElementById('content');
      var parent = document.createElement('UL');
      node.appendChild(parent);
-     for (var i =0;i<items.youtubeVideos.length;i++){
-        var child = document.createElement('LI');
+     for (var i =items.youtubeVideos.length-1;i>=0;i--){
+        var child = document.createElement('DIV');
+        child.setAttribute("class","songItem");
+        var childText = document.createElement('LI');
         if(items.youtubeVideos[i].title){
-        child.innerText=items.youtubeVideos[i].title;
+        var thumbnail = document.createElement('IMG');
+        thumbnail.setAttribute("src",items.youtubeVideos[i].thumbnail_url);
+        thumbnail.setAttribute("width","100px");
+        childText.innerText=items.youtubeVideos[i].title;
+        var play = document.createElement('IMG');
+        play.setAttribute("src","play.svg");
+        play.setAttribute("width","30px");
+        var playBtn = document.createElement('BUTTON');
+        playBtn.addEventListener("click", function(){
+            var player = document.getElementById('player');
+            player.innerHTML =items.youtubeVideos.html;
+        });
+        playBtn.appendChild(play);
+        child.appendChild(thumbnail);
+        child.appendChild(playBtn);
+        child.appendChild(childText);
         parent.appendChild(child);
       }
      }
@@ -45,7 +62,7 @@ function loadMedia(){
 
 window.onload = function(){
   loadMedia();
-	document.getElementById('add').onclick = loadMedia;
+	//document.getElementById('add').onclick = loadMedia;
   chrome.storage.onChanged.addListener(function(changes){
     loadMedia();
   })

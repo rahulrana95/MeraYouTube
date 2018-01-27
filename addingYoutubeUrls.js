@@ -35,7 +35,7 @@ xhr.addEventListener("readystatechange", function () {
     objectResponse.url = youtubeUrl;
     if( searchUrl(objectResponse.title,info) == 1 ){
 	    infoArray.push(objectResponse);
-	    chrome.storage.sync.set({'youtubeVideos':infoArray});
+	    chrome.storage.local.set({'youtubeVideos':infoArray});
 	}
   }
 });
@@ -49,7 +49,10 @@ xhr.send(data);
 chrome.tabs.onUpdated.addListener(
   function(tabId, changeInfo, tab) {
   	if(tab.url !== undefined ){
-   		chrome.storage.sync.get('youtubeVideos',function(info){
+  		if(tab.url.indexOf("youtube") == -1){
+  			return;
+  		}
+   		chrome.storage.local.get('youtubeVideos',function(info){
 
    			if(info.youtubeVideos){
 
